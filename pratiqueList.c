@@ -153,8 +153,8 @@ main(){
 	
 	
 	printf("--------------------\n");
-	//list l2 = malloc(sizeof(list));
-	list l2 = newliste();
+	list l2 = malloc(sizeof(list));
+	l2 = newliste();
 	l2 = ajouterfin(l2,2);
 	l2 = ajouterfin(l2,4);
 	l2 = ajouterfin(l2,7);
@@ -162,8 +162,6 @@ main(){
     afficherlist(l2);
     printf("\n--------------------\n");
 
-	//    l=fusion(l1,l2);
-  	//    afficherlist(l);
     printf("\n--------------------\n");
 
 

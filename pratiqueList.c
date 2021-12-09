@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
+
 typedef enum{false, true}Bool;
 
 typedef struct place place;
 
 struct place{
 	int val;
-	struct place *suivant;
+	struct place * suivant;
 };
+
 typedef place*list;
-
-
 
 int nbreelement(list l){
 
@@ -40,12 +40,6 @@ list ajouterfin(list l, int x){
 	list element ;
 	element = malloc(sizeof(list));
 
-	if(element == NULL){
-
-		printf("eurreur");
-		exit(EXIT_FAILURE);
-	}
-
 	element->val = x;
 	element->suivant = NULL;
 
@@ -57,19 +51,16 @@ list ajouterfin(list l, int x){
 	while(temp->suivant != NULL){
 		temp=temp->suivant;
 	}
-
 	temp->suivant = element;
+
 	return l;
-
-
 }
 
-
 list ajouterapresi(list l, int x, int i){
-
 	if(i>nbreelement(l)){
 		printf("\nimpossible, car lindice donner [%d] depasse la longeur du liste [%d] ", i, nbreelement(l));
 	}
+	
 	list tmp = l;
 	int j;
 	for(j=0;j<i;j++){
@@ -98,12 +89,12 @@ list ajouterdebut(list l, int x){
 void afficherlist(list l ){
 	list tmp = l;
 	while(tmp != NULL){
-		printf("%d \n", (*tmp).val);
+		printf("%d \n", tmp->val);
 		tmp = tmp->suivant;
 	}
 }
 
-list oneOfEachOne(list a, list b)
+list fusion(list a, list b)
 {
   list result = NULL;
 
@@ -113,7 +104,7 @@ list oneOfEachOne(list a, list b)
      return(a);
 
     result = a ;
-    result->suivant = oneOfEachOne(b,a->suivant);
+    result->suivant = fusion(b,a->suivant);
 
   return(result);
 }
@@ -141,36 +132,103 @@ temp2->suivant = fusion_avec_tri(temp1,temp2->suivant);
 return(temp2);
 }
 }
-
-main(){
-
-	list l1 = newliste();
-	l1 = ajouterfin(l1,1);
-	l1 = ajouterfin(l1,11);
-	l1 = ajouterfin(l1,3);
-	l1 = ajouterfin(l1,9);
-	afficherlist(l1);
+list supprimer(list l){
 	
-	
-	printf("--------------------\n");
-	list l2 = malloc(sizeof(list));
-	l2 = newliste();
-	l2 = ajouterfin(l2,2);
-	l2 = ajouterfin(l2,4);
-	l2 = ajouterfin(l2,7);
-	l2 = ajouterfin(l2,8);
-    afficherlist(l2);
-    printf("\n--------------------\n");
-
-    printf("\n--------------------\n");
-
-
-    list listC = newliste();
-    listC = oneOfEachOne(l1,l2);
-	afficherlist(listC);
-
-    
-
-	return 0;
+	l=l->suivant;
 }
+
+main()
+{
+	int choix;
+	list l1 = NULL;
+
+
+		
+	do{
+	
+		printf("\n\t____________________________________________________");
+		printf("\n\tCHOISIR UN CHOIX  OU ENTRER 0 POUR TERMINER\n");
+		printf("\t____________________________________________________\n");
+
+		int x;
+		int z;
+		printf("1 : affichage \n");
+		printf("2 : ajout au debut \n");
+		printf("3 : ajout fin \n");
+		printf("4 : quitter \n");
+		scanf("%d",&choix);
+		
+		switch (choix){	
+		case 1 : 
+			printf("\nAffichage : \n");
+				afficherlist(l1);
+				break;
+		case 2 : 
+			printf("\nAjouter debut : \n");
+			do{
+				printf("donner un nombre : ");
+				scanf("%d",&x);
+				l1 = ajouterdebut(l1,x);
+		
+			}while(x!=0);
+			
+			break;
+
+		case 3 : 
+			printf("\najouter fin : \n");
+					printf("\nAjouter fin : \n");
+						do{
+							printf("donner un nombre : ");
+							scanf("%d",&x);
+							l1 = ajouterfin(l1,x);
+						}while(x!=0);
+			
+				break;
+
+		
+
+		case 0 : exit(0);
+		}
+		
+	
+	}while (choix != 4);
+	
+	
+return 0;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	list l1 = newliste();
+//	l1 = ajouterfin(l1,1);
+//	l1 = ajouterfin(l1,11);
+//	l1 = ajouterfin(l1,3);
+//	l1 = ajouterfin(l1,9);
+//	afficherlist(l1);
+//		
+//	printf("--------------------\n");
+//	list l2 = malloc(sizeof(list));
+//	l2 = newliste();
+//	l2 = ajouterfin(l2,2);
+//	l2 = ajouterfin(l2,4);
+//	l2 = ajouterfin(l2,7);
+//	l2 = ajouterfin(l2,8);
+//    afficherlist(l2);
+//    printf("\n--------------------\n");
+//
+//    printf("\n--------------------\n");
+//
+//    list listC = newliste();
+//    listC = fusion(l1,l2);
+//	afficherlist(listC);
+
+}
+
 

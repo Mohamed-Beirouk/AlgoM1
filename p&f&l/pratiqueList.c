@@ -139,59 +139,31 @@ list supprimer(list l){
 
 main()
 {
-	int choix;
-	list l1 = NULL;
-
-
-		
-	do{
 	
-		printf("\n\t____________________________________________________");
-		printf("\n\tCHOISIR UN CHOIX  OU ENTRER 0 POUR TERMINER\n");
-		printf("\t____________________________________________________\n");
-
-		int x;
-		int z;
-		printf("1 : affichage \n");
-		printf("2 : ajout au debut \n");
-		printf("3 : ajout fin \n");
-		printf("4 : quitter \n");
-		scanf("%d",&choix);
-		
-		switch (choix){	
-		case 1 : 
-			printf("\nAffichage : \n");
-				afficherlist(l1);
-				break;
-		case 2 : 
-			printf("\nAjouter debut : \n");
-			do{
-				printf("donner un nombre : ");
-				scanf("%d",&x);
-				l1 = ajouterdebut(l1,x);
-		
-			}while(x!=0);
-			
-			break;
-
-		case 3 : 
-			printf("\najouter fin : \n");
-					printf("\nAjouter fin : \n");
-						do{
-							printf("donner un nombre : ");
-							scanf("%d",&x);
-							l1 = ajouterfin(l1,x);
-						}while(x!=0);
-			
-				break;
-
-		
-
-		case 0 : exit(0);
-		}
-		
 	
-	}while (choix != 4);
+	
+	list l1 = newliste();
+	l1 = ajouterfin(l1,1);
+	l1 = ajouterfin(l1,11);
+	l1 = ajouterfin(l1,3);
+	l1 = ajouterfin(l1,9);
+	afficherlist(l1);
+		
+	printf("--------------------\n");
+	list l2 = malloc(sizeof(list));
+	l2 = newliste();
+	l2 = ajouterfin(l2,2);
+	l2 = ajouterfin(l2,4);
+	l2 = ajouterfin(l2,7);
+	l2 = ajouterfin(l2,8);
+    afficherlist(l2);
+
+    printf("\n----- Fusion ------\n");
+
+    list listC = newliste();
+    listC = fusion(l1,l2);
+	afficherlist(listC);
+	
 	
 	
 return 0;
@@ -206,29 +178,83 @@ return 0;
 	
 	
 	
-//	list l1 = newliste();
-//	l1 = ajouterfin(l1,1);
-//	l1 = ajouterfin(l1,11);
-//	l1 = ajouterfin(l1,3);
-//	l1 = ajouterfin(l1,9);
-//	afficherlist(l1);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	int choix;
+//	list l1 = NULL;
+//
+
+		
+//	do{
+//	
+//		printf("\n\t____________________________________________________");
+//		printf("\n\tCHOISIR UN CHOIX  OU ENTRER 4 POUR TERMINER\n");
+//		printf("\t____________________________________________________\n");
+//
+//		int x;
+//		int z;
+//		printf("1 : affichage \n");
+//		printf("2 : ajout au debut \n");
+//		printf("3 : ajout fin \n");
+//		printf("4 : quitter \n");
+//		scanf("%d",&choix);
 //		
-//	printf("--------------------\n");
-//	list l2 = malloc(sizeof(list));
-//	l2 = newliste();
-//	l2 = ajouterfin(l2,2);
-//	l2 = ajouterfin(l2,4);
-//	l2 = ajouterfin(l2,7);
-//	l2 = ajouterfin(l2,8);
-//    afficherlist(l2);
-//    printf("\n--------------------\n");
+//		switch (choix){	
+//		case 1 : 
+//			printf("\nAffichage : \n");
+//				afficherlist(l1);
+//				break;
+//		case 2 : 
+//			printf("\nAjouter debut : \n");
+//			do{
+//				printf("donner un nombre : ");
+//				scanf("%d",&x);
+//				l1 = ajouterdebut(l1,x);
+//		
+//			}while(x!=0);
+//			
+//			break;
 //
-//    printf("\n--------------------\n");
+//		case 3 : 
+//			printf("\najouter fin : \n");
+//					printf("\nAjouter fin : \n");
+//						do{
+//							printf("donner un nombre : ");
+//							scanf("%d",&x);
+//							l1 = ajouterfin(l1,x);
+//						}while(x!=0);
+//			
+//				break;
 //
-//    list listC = newliste();
-//    listC = fusion(l1,l2);
-//	afficherlist(listC);
+//		
+//
+//		case 0 : exit(0);
+//		}
+//		
+//	
+//	}while (choix != 4);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
-
-
